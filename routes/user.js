@@ -9,8 +9,8 @@ router.get('/signup',(req,res)=>{
 });
 router.post('/signin',async(req,res)=>{
        const {email,password}=req.body;
-       const user=User.matchPassword(email,password);
-       console.log('User',user);
+       const token=await User.matchPassword(email,password);
+       console.log('token',token);
            return res.redirect("/");
 })
 router.post('/signup',async(req,res)=>{
